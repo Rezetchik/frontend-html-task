@@ -1,0 +1,131 @@
+.sidebar {
+  background-color: rgb(0, 0, 0);
+  width: 200px;
+  height: 100vh;
+  border: 3px solid rgb(43, 52, 65);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: width 0.3s;
+
+  .header {
+    margin-top: 10px;
+    padding: 10px 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    &__logo {
+      width: 28px;
+      height: 28px;
+    }
+    span {
+      padding-left: 5px;
+      font-size: 18px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      opacity: 1;
+      transition: opacity 0.2s 0.1s;
+    }
+    .arrow-left {
+      position: absolute;
+      background-color: rgb(30, 41, 59);
+      right: -12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: right 0.3s, background-color 0.3s;
+      svg {
+        display: block;
+        margin: 0 auto;
+        height: 60%;
+      }
+    }
+    .arrow-right {
+      @extend .arrow-left;
+      background-color: rgb(0, 0, 0);
+      right: -32px;
+      transition: right 0.3s, background-color 0.3s;
+    }
+  }
+
+  .tabs {
+    padding: 0 10px 10px;
+
+    &__item {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: padding-left 0.3s, background-color 0.1s ease-in-out;
+      &:hover {
+        background-color: rgb(15, 23, 42);
+      }
+
+      &:active {
+        background-color: rgb(0, 12, 69);
+      }
+    }
+
+    &__active {
+      @extend .tabs__item;
+      background-color: rgb(0, 12, 69);
+
+      &:hover {
+        background-color: rgb(0, 17, 100);
+      }
+    }
+
+    &__logo {
+      padding-left: 10px;
+    }
+
+    span {
+      padding-left: 5px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      opacity: 1;
+      transition: opacity 0.2s 0.1s;
+    }
+  }
+
+  .footer {
+    @extend .tabs;
+    margin-bottom: 10px;
+  }
+}
+
+.sidebar-hidden {
+  @extend .sidebar;
+  width: 60px;
+  transition: width 0.3s;
+
+  .header {
+    span {
+      opacity: 0;
+      transform: translate(30px, 0);
+      transition: opacity 0.1s, transform 0.1s;
+      //   transition: opacity 0.1s;
+    }
+  }
+
+  .tabs {
+    &__item {
+      padding-left: 0px;
+      display: flex;
+      align-items: center;
+      transition: padding-left 0.3s;
+      span {
+        opacity: 0;
+        transform: translate(20px, 0);
+        transition: opacity 0.1s, transform 0.1s;
+        // transition: opacity 0.1s;
+      }
+    }
+  }
+}
